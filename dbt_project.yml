@@ -19,3 +19,9 @@ models:
     stg:
       +enabled: true
       +schema: stg
+    dwh:
+      +enabled: true
+      +schema: dwh
+    rep:
+      +enabled: true
+      +schema: rep
