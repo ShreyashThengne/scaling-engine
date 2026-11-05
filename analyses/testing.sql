@@ -1,0 +1,1 @@
+select * from tpch_demo.stg.customer
