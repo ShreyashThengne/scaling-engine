@@ -1,10 +1,31 @@
 scaling_engine:
   target: dev
   outputs:
+    staging:
+      type: snowflake
+      role: DBT_ACCESS_ACC
+      warehouse: TRANSFORM_WH
+      database: "{{ env_var('DBT_CURRENT_DB') }}"
+      schema: "{{ env_var('DBT_CURRENT_SCHEMA') }}"
+      threads: 8
     dev:
       type: snowflake
-      role: ACCOUNTADMIN
-      warehouse: COMPUTE_WH
-      database: TPCH_DEMO
+      role: DBT_ACCESS_DEV
+      warehouse: TRANSFORM_WH
+      database: TPCH_DEV
+      schema: TPCH_SF1
+      threads: 8
+    acc:
+      type: snowflake
+      role: DBT_ACCESS_ACC
+      warehouse: TRANSFORM_WH
+      database: TPCH_ACC
+      schema: TPCH_SF1
+      threads: 8
+    prd:
+      type: snowflake
+      role: DBT_ACCESS_PRD
+      warehouse: TRANSFORM_WH
+      database: TPCH_PRD
       schema: TPCH_SF1
       threads: 8
